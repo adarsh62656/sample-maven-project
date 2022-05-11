@@ -8,6 +8,7 @@ pipeline {
         steps {
         sh """
         git tag ${currentBuild.number}
+        git push origin ${currentBuild.number}
         """
       }
     }
