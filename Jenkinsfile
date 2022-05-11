@@ -6,7 +6,9 @@ pipeline {
             branch "fix*"
         }
         steps {
-        echo "Build number is ${currentBuild.number}"
+        sh """
+        git tag ${currentBuild.number}
+        """
       }
     }
   }
