@@ -1,3 +1,4 @@
+def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: '0c617b42-8575-440d-86de-2bd1b20e5459']]
 pipeline {
   agent any
   stages {
@@ -5,6 +6,7 @@ pipeline {
         when{
             branch "fix*"
         }
+        	0c617b42-8575-440d-86de-2bd1b20e5459
         steps {
         withCredentials([gitUsernamePassword(credentialsId: '3622ccbe-3900-49f8-bf6c-8e003974bb3f', gitToolName: 'git-tool')]) {
         sh 'git fetch --all'
