@@ -14,11 +14,13 @@ pipeline {
         git push origin build-${currentBuild.number}
         """
         }
+        withCredentials(awsCredentials){
         sh "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/s5o7d0z2"
         sh "docker build -t adarsh-repo ."
         sh "docker tag adarsh-repo:latest public.ecr.aws/s5o7d0z2/adarsh-repo:build-${currentBuild.number}"
         sh "docker push public.ecr.aws/s5o7d0z2/adarsh-repo:build-${currentBuild.number}"
-      }
+        }
+        }
     }
   }
 }
