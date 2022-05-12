@@ -6,7 +6,7 @@ pipeline {
             branch "fix*"
         }
         steps {
-        withCredentials([gitUsernamePassword(credentialsId: '13cf96f7-55a2-4dcf-82a7-18801da2b7a1', gitToolName: 'git-tool')]) {
+        withCredentials([gitUsernamePassword(credentialsId: '3622ccbe-3900-49f8-bf6c-8e003974bb3f', gitToolName: 'git-tool')]) {
         sh 'git fetch --all'
         }
         sh """
